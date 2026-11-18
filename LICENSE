@@ -1,21 +1,262 @@
-MIT License
+# Non-Commercial ShareAlike License 1.0
 
-Copyright (c) 2026 Elio-de
+**Non-Commercial ShareAlike License 1.0**
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Copyright © 2026 Elio. All rights reserved.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+---
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+## 1. Scope of the License
+
+This License applies to source code, software, documentation, Markdown files, images, circuit diagrams, design files, and other original works distributed with this License and expressly identified as being licensed under it (collectively, the “Work”).
+
+This License grants only those rights that the copyright holder or other rights holder actually owns and is legally entitled to grant.
+
+All rights not expressly granted by this License are reserved.
+
+---
+
+## 2. Permitted Non-Commercial Use
+
+Subject to compliance with all terms of this License, any person may, for **Non-Commercial purposes**:
+
+1. use the Work;
+2. study, research, and analyze the Work;
+3. copy the Work;
+4. modify, adapt, or create derivative works based on the Work;
+5. use the Work for personal learning, personal research, personal experimentation, educational activities, or other Non-Commercial activities;
+6. publicly share the Work and Modified Works in accordance with this License.
+
+No additional permission from the Author is required for the activities expressly permitted above.
+
+---
+
+## 3. Commercial Use
+
+Commercial Use of the Work is prohibited unless the rights holder has granted prior explicit authorization.
+
+For the purposes of this License, “Commercial Use” includes, but is not limited to:
+
+1. selling the Work or products substantially based on the Work;
+2. incorporating the Work into commercial software, hardware, or services;
+3. using the Work as a substantial component of a commercial product or service;
+4. using the Work directly or indirectly for commercial revenue or financial gain;
+5. using the Work to provide paid services to third parties;
+6. using the Work in commercial production, deployment, or operation;
+7. any other use primarily intended to obtain commercial benefit or monetary compensation.
+
+A person wishing to make Commercial Use of the Work may contact the rights holder to request a separate commercial license.
+
+The scope, duration, fees, and other conditions of such commercial authorization shall be determined separately by agreement between the parties.
+
+Commercial Use is permitted only to the extent expressly authorized by such separate authorization.
+
+---
+
+## 4. Modification and Derivative Works
+
+Any person may modify, adapt, or create derivative works based on the Work for Non-Commercial purposes.
+
+A modifier retains the rights applicable to their own original contributions, but may not thereby remove, weaken, or restrict the rights granted under this License with respect to the original Work.
+
+Modification of the Work may not be used as a means of circumventing the Non-Commercial restrictions of this License.
+
+---
+
+## 5. Public Distribution of Modified Works
+
+If a person publicly releases, distributes, or redistributes a Modified Work that contains the Work or a substantial portion thereof, that person must:
+
+1. retain the original copyright notice;
+2. acknowledge the source of the original Work;
+3. identify the material modifications made to the Work;
+4. retain this License;
+5. continue to apply the Non-Commercial conditions of this License to the original Work and the Modified Work;
+6. not impose additional restrictions that conflict with this License.
+
+**A person who modifies the Work solely for private use and does not publicly distribute the Modified Work is not required to disclose or publish their modifications.**
+
+---
+
+## 6. ShareAlike Requirement
+
+If a Modified Work or derivative work based on the Work is publicly released, it must be made available under licensing conditions that are **substantially equivalent to those of this License**.
+
+In particular, a distributor may not:
+
+- change the Modified Work to a license that permits unauthorized Commercial Use;
+- remove the Non-Commercial restriction;
+- remove the attribution requirement;
+- remove the modification-notice requirement;
+- otherwise circumvent the core conditions of this License.
+
+A modifier may provide additional copyright notices or compatibility statements for their own original contributions, provided that such terms do not conflict with the requirements above.
+
+---
+
+## 7. Source Code of Modified Works
+
+This License does **not** require a modifier to automatically publish or disclose their modified source code merely because they have modified the Work.
+
+However, if the modifier publicly releases the modified source code, that source code must remain subject to this License.
+
+If a modifier releases only binary files, compiled outputs, or other non-source forms, this License does not automatically require disclosure of the corresponding source code.
+
+Any publicly released version must nevertheless comply with the Non-Commercial and ShareAlike requirements of this License.
+
+---
+
+## 8. Rights of the Original Author
+
+When a modifier publicly releases a Modified Work containing or based on the Work under this License, the Original Author may use, copy, study, modify, and otherwise use such publicly released Modified Work for Non-Commercial purposes to the same extent permitted to other users under this License.
+
+The Original Author has the same license rights with respect to publicly released Modified Works as any other eligible user.
+
+This section does not transfer ownership of the modifier’s original contributions to the Original Author.
+
+---
+
+## 9. Attribution and Copyright Notices
+
+When publicly distributing the Work or a Modified Work, the distributor must:
+
+1. retain the Original Author’s name or designated attribution;
+2. retain the original copyright notice;
+3. retain the name of this License;
+4. provide the text of this License or a reasonable means of accessing it where practicable;
+5. clearly indicate whether the Work has been modified.
+
+Existing attribution, copyright, or license notices must not be removed without reasonable justification.
+
+---
+
+## 10. Modification Notice
+
+When publicly distributing a Modified Work, the distributor must reasonably indicate that modifications have been made.
+
+For example:
+
+> Original work by Elio. Modified by [Modifier Name].  
+> Changes: Added XXX; modified XXX.
+
+The modification notice does not require disclosure of personal information that the modifier does not wish to make public.
+
+---
+
+## 11. Third-Party Material
+
+This License applies only to material owned by the rights holder or otherwise legally authorized for licensing by the rights holder.
+
+If the Work contains third-party code, images, documents, data, fonts, models, or other material subject to third-party licensing terms:
+
+1. such third-party material is not automatically licensed under this License;
+2. users must comply with the applicable third-party license;
+3. this License must not be interpreted as granting rights that the rights holder does not have authority to grant.
+
+Where third-party material is explicitly identified, the applicable third-party license or authorization shall govern that material.
+
+---
+
+## 12. Separate Commercial Authorization
+
+A commercial license granted for one version of the Work does not automatically apply to:
+
+1. other projects;
+2. other versions;
+3. other works;
+4. other derivative works;
+5. other uses not expressly included in the authorization.
+
+Unless otherwise agreed in writing.
+
+---
+
+## 13. Termination
+
+If a user materially violates this License, the rights granted under this License automatically terminate.
+
+If the violation is ceased and reasonably cured, the rights holder may, at their discretion, restore the user's authorization.
+
+Termination does not affect:
+
+1. rights lawfully exercised before termination;
+2. Non-Commercial uses that were lawfully made before termination;
+3. rights that cannot legally be terminated or revoked under applicable law.
+
+A violation by one user does not automatically terminate the rights of other users who lawfully obtained the Work and continue to comply with this License.
+
+---
+
+## 14. Disclaimer of Warranty
+
+The Work is provided **“AS IS”**, without warranties of any kind.
+
+To the maximum extent permitted by applicable law, the rights holder disclaims all express or implied warranties, including but not limited to:
+
+- merchantability;
+- fitness for a particular purpose;
+- non-infringement;
+- accuracy;
+- security;
+- continuous availability;
+- freedom from errors or defects.
+
+The user assumes all risks arising from the use of the Work.
+
+---
+
+## 15. Limitation of Liability
+
+To the maximum extent permitted by applicable law, the rights holder shall not be liable for any direct, indirect, incidental, special, punitive, or consequential damages arising from or relating to the use, modification, distribution, or inability to use the Work.
+
+If applicable law prohibits all or part of such limitation, this section shall apply only to the maximum extent legally permitted.
+
+---
+
+## 16. No Trademark Rights
+
+This License does not grant any right to use the Author’s name, personal identifiers, trademarks, brand names, or other commercial identifiers unless separately authorized.
+
+Use of the Work must not imply that the Author officially endorses, sponsors, or is affiliated with the user, their products, or their services.
+
+---
+
+## 17. Interpretation
+
+Nothing in this License shall be interpreted as requiring the Author to:
+
+1. provide technical support;
+2. maintain the Work;
+3. provide future versions;
+4. disclose private development work;
+5. grant any rights not expressly granted by this License.
+
+---
+
+## 18. License Version
+
+License name:
+
+**Elio Non-Commercial ShareAlike License 1.0**
+
+Short identifier:
+
+**Elio-NCSA-1.0**
+
+The rights holder may publish later versions of this License.
+
+Unless expressly stated otherwise, a later version does not automatically replace the license version applicable to previously released Works.
+
+---
+
+## 19. Summary of the License
+
+For convenience, the core principles of this License are:
+
+> **You may study, use, modify, and share the Work for Non-Commercial purposes. Commercial Use requires prior authorization. Publicly released Modified Works must retain attribution and modification notices and must continue to be licensed under substantially equivalent Non-Commercial ShareAlike conditions. The Original Author may likewise use publicly released Modified Works under this License.**
+
+This summary is provided for convenience only and does not replace the full text of this License.
+
+---
+
+**Copyright © 2026 Elio. All rights not expressly granted are reserved.**
