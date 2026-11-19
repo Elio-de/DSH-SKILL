@@ -14,14 +14,15 @@ python scripts/env_probe.py --tools git
 或在 pwsh 里直接：
 
 ```powershell
-Get-Command git -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source
-git rev-parse --show-toplevel 2>$null
+$git = 'C:\Program Files\Git\cmd\git.exe'
+if (Test-Path $git) { & $git rev-parse --show-toplevel 2>$null }
+else { Get-Command git -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source }
 ```
 
-- 都无输出 → **Git 不可用**，走 §6 降级。
+- 都无输出 → **Git 探测失败/不可用**，走 §6 降级。
 - 有输出 → 走 §2–§5。
 
-**PATH 未刷新的坑**：刚装完 Git 时，正在运行的终端/进程不会自动获得新的 PATH，`Get-Command git` 会误报缺失。`env_probe.py` 会直接校验安装路径（`C:\Program Files\Git\cmd\git.exe`），因此优先信它。命令行里临时补 PATH：
+**PATH 未刷新的坑**：Git 可能已安装但不在 PATH（本机就是这种情况）。`env_probe.py` 会直接校验安装路径（`C:\Program Files\Git\cmd\git.exe`），因此优先信它；命令行用绝对路径或临时补 PATH：
 
 ```powershell
 $env:PATH = "$env:PATH;C:\Program Files\Git\cmd"
@@ -116,9 +117,9 @@ git diff                    # 逐行看（或只读关键文件）
 
 ---
 
-## 6 无 Git 时的降级
+## 6 Git 探测失败/不可用时的降级
 
-**明确告知用户**："本机未安装 Git，无法执行 status/diff/log/分支/回滚。"
+**明确告知用户**："当前无法调用 Git（未找到可执行文件或无法启动），不能执行 status/diff/log/分支/回滚。" 不要写成"本机没有安装 Git"——本机已安装 2.56.0，只是可能不在 PATH。
 
 仍然能做的：
 
@@ -137,7 +138,7 @@ git diff                    # 逐行看（或只读关键文件）
 python scripts/stale_check.py --root .
 ```
 
-**安装建议**（需用户批准）：`winget install --id Git.Git -e`。装好后本模块自动升级为完整能力，无需改 Skill。
+**安装建议**（仅在确实探测不到可执行文件时，需用户批准）：`winget install --id Git.Git -e`。装好后本模块自动升级为完整能力，无需改 Skill。
 
 ---
 

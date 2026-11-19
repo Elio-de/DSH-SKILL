@@ -1,8 +1,12 @@
 ---
 name: offline-learning-html
-description: Build a complete self-contained offline interactive HTML learning product, including concept explanations, visual simulators, step-by-step execution, quizzes with explanations, progress persistence, and JSON export/import. Use when the user asks for an interactive tutorial, educational web app, concept visualizer, offline learning page, or single-file teaching tool.
+description: "制作单文件、离线、自包含的交互式 HTML 学习产品：概念讲解、可视化模拟器、分步执行、带解析的测验、进度保存、JSON 导入导出。当用户要求交互式教程、教育类 Web 应用、概念可视化、离线学习页或单文件教学工具时使用。"
+whenToUse: "交互式教程、离线教育网站、概念可视化、分步教学、测验/闪卡、单文件教学工具；需要断网可用、无外部依赖时。"
+user-invocable: true
 ---
-Offline Learning HTML v2.0
+Offline Learning HTML v2.0.1
+
+> 2026-11-19：v2.0.1 修复 frontmatter、调用元数据与第 6 节题量编码；其余内容未改。
 
 ## 1. Identity and Mission
 
@@ -69,6 +73,16 @@ Examples:
 Do not use this Skill for ordinary static documents, conventional websites requiring a backend, or projects that fundamentally require real hardware integration or online services.
 
 If a requested feature cannot work offline, clearly explain the limitation and offer an offline-compatible alternative.
+
+### 2.1 Handoff from knowledge-content-engine
+
+When the task comes from `knowledge-content-engine`, accept an `interaction-brief.md` with: learning objectives, audience/prerequisites, knowledge points, difficult concepts, suggested interactions (visualization/simulation/quiz/step-through), data needs, and acceptance points. If the brief is missing, ask for the minimum: objective, audience, knowledge points, and required interactions.
+
+- Do not redo open-ended research; use the sources/claims provided by KCE or the user.
+- OFF owns the single-file HTML implementation, offline/self-contained checks, and interaction testing; KCE owns knowledge structure and answer correctness.
+- Write the output to the path the user specifies; do not overwrite an existing file without confirmation.
+- Return: file path, feature list, test status (static/functional/browser), known limitations.
+- Cross-skill handoff follows `guides/handoff-contract.md`; this Skill never claims to call another Skill.
 
 ---
 
@@ -355,7 +369,7 @@ Document meaningful assumptions and limitations.
 
 Applications should include an appropriate knowledge assessment mechanism.
 
-For quizzes and self-tests, provide 3鈥? questions by default unless the user specifies another quantity.
+For quizzes and self-tests, provide 3–7 questions by default unless the user specifies another quantity.
 
 ### 6.1 Question Types
 

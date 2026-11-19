@@ -166,10 +166,14 @@ def probe_fanalyzer(gcc_path: str) -> dict:
     return result
 
 
-def probe_git_state() -> dict:
-    """git 是否可用，以及当前目录是否在仓库内。"""
+def probe_git_state(git_path: str = "") -> dict:
+    """git 是否可用，以及当前目录是否在仓库内。
+
+    优先使用 resolve_tool() 已经探测到的绝对路径（Git 不在 PATH 时也能工作）；
+    只有未传入路径时才回退到 shutil.which()。
+    """
     state = {"binary": False, "repo": False, "root": ""}
-    git = shutil.which("git")
+    git = git_path if git_path and os.path.isfile(git_path) else shutil.which("git")
     if not git:
         return state
     state["binary"] = True
@@ -190,7 +194,7 @@ def collect(selected=None) -> dict:
         tools[name] = record
 
     capabilities = {
-        "git": probe_git_state(),
+        "git": probe_git_state(tools.get("git", {}).get("path", "")),
         "fanalyzer_host": probe_fanalyzer(tools.get("gcc", {}).get("path", "")),
         "fanalyzer_target": probe_fanalyzer(tools.get("arm-none-eabi-gcc", {}).get("path", "")),
         "cwd": os.getcwd(),
@@ -217,7 +221,7 @@ def build_verdict(tools: dict, capabilities: dict) -> dict:
 
     has_host_cc = ok("gcc") or ok("clang")
     has_target_cc = ok("arm-none-eabi-gcc")
-    has_git = capabilities["git"]["binary"]
+    has_git = capabilities["git"]["binary"] or ok("git")
     has_repo = capabilities["git"]["repo"]
 
     return {
@@ -236,7 +240,7 @@ def build_verdict(tools: dict, capabilities: dict) -> dict:
         ),
         "git_usable": has_git,
         "git_repo": has_repo,
-        "git_degrade_reason": "" if has_git else "未安装 git：无法 status/diff/log/分支/回滚，必须降级并明确告知",
+        "git_degrade_reason": "" if has_git else "未找到 git：无法 status/diff/log/分支/回滚，必须降级并明确告知",
         "debug_online": ok("openocd") or ok("STM32_Programmer_CLI"),
         "test_runner": ok("pytest") or has_host_cc,
         "realtime_trace": False,

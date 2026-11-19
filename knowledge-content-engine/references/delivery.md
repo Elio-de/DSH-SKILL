@@ -33,6 +33,8 @@ content/<doc-slug>/
 - 同 slug 不同 `docId` → `<slug>-v2` 递增；同 `docId` → 续写。
 - 历史版本放 `history/`，当前版本在根。
 
+**示例索引**（`examples/`）：`mini-doc/` 是**可运行**的最小文档示例（manifest + 必需文件齐全，validator 通过）；`learn-doc.example.md` 与 `tech-doc.example.md` 是格式片段，不是完整产物。
+
 ## 2 manifest 生成
 
 **第一步：读契约**。生成前必须读 `schemas/doc_manifest.schema.json`；字段形状以 schema 为准，本文只给生成顺序与要点。`scripts/validate_manifest.py` 读取同一 schema 校验。
@@ -85,7 +87,7 @@ content/<doc-slug>/
 3. 模式 / 档位 / 文档类型 / 版本 / `asOf`。
 4. 能力边界：未生成格式、未验证项、未完成项。
 5. 转换请求状态（没有则写"未请求转换"或省略）。
-6. 下游交接说明（S03/S04/S06/S10/S14/S15/S16）。
+6. 下游交接说明（S03/S04/S10/S14/S15/S16；代码/测试交 `engineering-assistant`；交互 HTML 交 `offline-learning-html`）。
 7. 质量结论：自检结果 + 引用完整性（声明"自检，非独立审查"）。
 8. 版本与更新建议。
 

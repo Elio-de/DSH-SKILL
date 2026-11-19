@@ -16,7 +16,7 @@
 ├── ISSUES.md      已知问题（open/fixed，状态迁移不删条目）
 ├── PROGRESS.md    进度（滚动最近 15 条）
 ├── GLOSSARY.md    术语表
-├── backup/        改前快照（无 Git 时的安全网）
+├── backup/        改前快照（Git 不可用/未初始化时的安全网）
 └── archive/       归档：旧问题、旧进度、被取代的决策
 ```
 

@@ -1,0 +1,1 @@
+# 示例讲义\n\n这是可运行示例的正文占位，仅用于演示 manifest 结构与 validator。\n

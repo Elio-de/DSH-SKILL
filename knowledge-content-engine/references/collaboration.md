@@ -1,6 +1,6 @@
 # 与其他 Skill 的协作（文件契约）
 
-> 职责：定义与 S01/S03/S04/S06/S10/S14/S15/S16 的只读/交接契约、能力缺失降级、交接包消费说明。
+> 职责：定义与 S01、`offline-learning-html`、`engineering-assistant`、规划中的 S03/S04/S10/S14/S15/S16 的只读/交接契约、能力缺失降级、交接包消费说明。
 > 读取时机：S0 能力探测；S11 生成交接文件；涉及下游时。
 > 原则：Skill 之间不能互调；只通过工作区文件交接；不冒充"已调用"。
 
@@ -41,18 +41,22 @@
 - 不写 Obsidian、不建双链、不执行入库。
 - 声明"待 S04 处理"。
 
-## 5 S06 quality-assurance（下游，未安装）
+## 5 S06 engineering-assistant（已安装；代码执行/测试，不是独立文档审查）
 
-- 输出 `review-request.md`（范围/标准/已知缺陷/重点风险）+ 只读交接包。
+- 本 Skill 不审查代码、不改代码；需要代码级审查/测试时交 `engineering-assistant`。
+- 可向它提供文档中涉及的代码路径、断言清单与验收标准；它回传代码改动、测试结果与 V 级证据。
 - 本 Skill 自检 ≠ 独立审查；不得写"已通过独立审查"。
 - 可用 `subagent` 内部复核，记录 `review.internalReview[]`，性质写"内部复核"。
-- S06 意见回传 → 按缺陷闭环处理（`quality.md` §5）。
+- 代码类意见回传 → 按缺陷闭环处理（`quality.md` §5）。
+- 反向：EA 不写正式交付文档；需要成稿时交回本 Skill。
 
-## 6 S10 / S14（下游，未安装）
+## 6 S10 / S14 与 offline-learning-html（交互式 HTML）
 
-- 输出 `interaction-brief.md`：学习目标、知识难点、建议交互点（可视化/仿真/测验/分步引导）、数据需求。
-- 不生成 HTML、不做交互实现；声明 S10/S14 未安装。
-- 已安装的 `offline-learning-html` 属相邻能力；仅当用户明确要求时使用，本 Skill 不冒充其实现。
+- 输出 `interaction-brief.md`：学习目标、受众/前置、知识难点、建议交互点（可视化/仿真/测验/分步引导）、数据需求、验收点、来源/断言引用。
+- `interaction-brief.md` 最小字段：`goal`、`audience`、`prerequisites`、`knowledgePoints`、`difficultPoints`、`interactions`、`dataNeeds`、`acceptance`、`sources`。
+- 不生成 HTML、不做交互实现；S10/S14 仍未安装。
+- 已安装的 `offline-learning-html` 是交互 HTML 的输出方：用户明确要求交互页时，把 `interaction-brief.md` 交给它；本 Skill 不冒充其实现。
+- 交接验收：brief 字段齐全、知识点覆盖完整、测验答案由本 Skill 复核；HTML 的离线/交互/浏览器测试由 OFF 负责并声明。
 
 ## 7 S15 思维导图（下游，未安装）
 
@@ -86,5 +90,5 @@
 
 - 不调用其他 Skill；不写其他 Skill 目录。
 - 不修改 DSH 配置、不安装插件。
-- 不声称"已交给 S03/S04/S06"除非文件真实生成。
+- 不声称"已交给 S03/S04/S10/S14/S15/S16 或 engineering-assistant"除非文件/结果真实生成。
 - 不把自检包装为独立审查。
