@@ -1,0 +1,18 @@
+{
+  "_note": "本文件由 scripts/project_scan.py --init --update-state 自动生成/更新，不要手写。此处仅为占位骨架（空项目）。",
+  "schemaVersion": 1,
+  "createdAt": "",
+  "updatedAt": "",
+  "root": "",
+  "toolchain": {},
+  "files": {},
+  "modules": {},
+  "knowledge": {},
+  "scan": {
+    "fileCount": 0,
+    "sourceFileCount": 0,
+    "buildSystems": [],
+    "entries": [],
+    "truncated": false
+  }
+}

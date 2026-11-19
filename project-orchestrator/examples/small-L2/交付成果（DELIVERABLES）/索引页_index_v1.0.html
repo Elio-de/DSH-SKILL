@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>团队技术文档索引 v1.0</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, "Microsoft YaHei", sans-serif; background: #f4f6f8; color: #1f2933; line-height: 1.6; }
+  header { background: #12324f; color: #fff; padding: 24px 20px 16px; }
+  header h1 { margin: 0 0 6px; font-size: 22px; }
+  header p { margin: 0; font-size: 13px; opacity: .85; }
+  main { max-width: 980px; margin: 0 auto; padding: 20px; }
+  .bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
+  .bar button { border: 1px solid #b9c6d2; background: #fff; color: #1f2933; padding: 6px 12px; border-radius: 14px; cursor: pointer; font-size: 13px; }
+  .bar button[aria-pressed="true"] { background: #1f6feb; border-color: #1f6feb; color: #fff; }
+  .bar input { flex: 1 1 220px; min-width: 180px; padding: 7px 10px; border: 1px solid #b9c6d2; border-radius: 6px; font-size: 14px; }
+  .nav { margin: 0 0 18px; font-size: 13px; }
+  .nav a { color: #1f6feb; margin-right: 10px; white-space: nowrap; }
+  .card { background: #fff; border: 1px solid #dfe6ec; border-radius: 8px; padding: 14px 16px; margin-bottom: 12px; }
+  .card h2 { margin: 0 0 6px; font-size: 16px; }
+  .meta { font-size: 12px; color: #52606d; margin: 0 0 6px; }
+  .meta .tag { display: inline-block; background: #e6eefc; color: #1f4e9c; border-radius: 10px; padding: 1px 8px; margin-right: 6px; }
+  .summary { margin: 0 0 8px; font-size: 14px; }
+  .path { display: block; font-family: ui-monospace, Consolas, monospace; font-size: 12px; color: #334e68; word-break: break-all; }
+  .empty { padding: 18px; background: #fff; border: 1px dashed #b9c6d2; border-radius: 8px; color: #52606d; display: none; }
+  footer { max-width: 980px; margin: 0 auto 30px; padding: 0 20px; font-size: 12px; color: #52606d; }
+  footer a { color: #1f6feb; }
+</style>
+</head>
+<body>
+<header id="top">
+  <h1>团队技术文档索引</h1>
+  <p>共 8 篇 · 6 个主题 · 离线单文件 · 版本 v1.0 · 2026-11-18</p>
+</header>
+<main>
+  <div class="bar" role="group" aria-label="主题筛选">
+    <button type="button" data-filter="全部" aria-pressed="true">全部</button>
+    <button type="button" data-filter="构建与发布" aria-pressed="false">构建与发布</button>
+    <button type="button" data-filter="可观测性" aria-pressed="false">可观测性</button>
+    <button type="button" data-filter="接口与数据" aria-pressed="false">接口与数据</button>
+    <button type="button" data-filter="运维值班" aria-pressed="false">运维值班</button>
+    <button type="button" data-filter="安全与合规" aria-pressed="false">安全与合规</button>
+    <button type="button" data-filter="团队协作" aria-pressed="false">团队协作</button>
+    <input id="kw" type="search" placeholder="输入关键字过滤标题、摘要或路径（如 CI、错误码、值班）" aria-label="关键字过滤">
+  </div>
+
+  <nav class="nav" aria-label="条目导航">
+    <a href="#doc-01">01 CI 流水线</a>
+    <a href="#doc-02">02 日志规范</a>
+    <a href="#doc-03">03 数据库变更</a>
+    <a href="#doc-04">04 错误码表</a>
+    <a href="#doc-05">05 值班手册</a>
+    <a href="#doc-06">06 压测方案</a>
+    <a href="#doc-07">07 安全基线</a>
+    <a href="#doc-08">08 新人清单</a>
+    <a href="#top">回到顶部</a>
+  </nav>
+
+  <article class="card" id="doc-01" data-theme="构建与发布" data-status="现行">
+    <h2>CI 流水线接入说明</h2>
+    <p class="meta"><span class="tag">构建与发布</span>有效版本 2026-09-12 · 现行 · Markdown</p>
+    <p class="summary">说明迁移后的 3 条流水线与 12 个质量门禁的触发条件，附回滚方式。</p>
+    <span class="path">源文档/01_CI流水线接入说明.md</span>
+  </article>
+
+  <article class="card" id="doc-02" data-theme="可观测性" data-status="现行">
+    <h2>日志规范 v2</h2>
+    <p class="meta"><span class="tag">可观测性</span>有效版本 2026-08-30 · 现行 · Markdown</p>
+    <p class="summary">统一 5 级日志字段与采样率，给出 3 类排障场景的检索命令。</p>
+    <span class="path">源文档/02_日志规范_v2.md</span>
+  </article>
+
+  <article class="card" id="doc-03" data-theme="接口与数据" data-status="现行">
+    <h2>数据库变更流程</h2>
+    <p class="meta"><span class="tag">接口与数据</span>有效版本 2026-10-08 · 现行 · Markdown</p>
+    <p class="summary">定义 DDL 评审、灰度与回滚的 4 个检查点及责任人。</p>
+    <span class="path">源文档/03_数据库变更流程.md</span>
+  </article>
+
+  <article class="card" id="doc-04" data-theme="接口与数据" data-status="现行">
+    <h2>接口错误码表</h2>
+    <p class="meta"><span class="tag">接口与数据</span>有效版本 2026-07-21 · 现行 · Markdown</p>
+    <p class="summary">汇总 42 个错误码、状态码映射与客户端处置建议。</p>
+    <span class="path">源文档/04_接口错误码表.md</span>
+  </article>
+
+  <article class="card" id="doc-05" data-theme="运维值班" data-status="现行">
+    <h2>值班手册 2026H2</h2>
+    <p class="meta"><span class="tag">运维值班</span>有效版本 2026-11-02 · 现行 · Markdown</p>
+    <p class="summary">交接班 6 项必查、升级路径与 3 级告警的响应时限。</p>
+    <span class="path">源文档/05_值班手册_2026H2.md</span>
+  </article>
+
+  <article class="card" id="doc-06" data-theme="运维值班" data-status="待更新">
+    <h2>订单服务压测方案（PDF）</h2>
+    <p class="meta"><span class="tag">运维值班</span>有效版本 2025-12-15 · 待更新 · PDF</p>
+    <p class="summary">压测模型、目标 QPS 与瓶颈定位结论（摘要取自目录页）。</p>
+    <span class="path">源文档/06_压测方案_订单服务.pdf</span>
+  </article>
+
+  <article class="card" id="doc-07" data-theme="安全与合规" data-status="现行">
+    <h2>安全基线检查表（PDF）</h2>
+    <p class="meta"><span class="tag">安全与合规</span>有效版本 2026-06-18 · 现行 · PDF</p>
+    <p class="summary">12 类基线检查项与例外审批流程（摘要取自目录页）。</p>
+    <span class="path">源文档/07_安全基线检查表.pdf</span>
+  </article>
+
+  <article class="card" id="doc-08" data-theme="团队协作" data-status="现行">
+    <h2>新人上手清单</h2>
+    <p class="meta"><span class="tag">团队协作</span>有效版本 2026-11-10 · 现行 · Markdown</p>
+    <p class="summary">新成员 3 天上手路径：环境、权限、必读文档与首个任务。</p>
+    <span class="path">源文档/08_新人上手清单.md</span>
+  </article>
+
+  <p class="empty" id="empty">没有匹配的条目，请更换关键字或点击「全部」。</p>
+</main>
+<footer>
+  <p>版本 v1.0 ｜ 2026-11-18 ｜ 生成者：主 AI + 子代理 ｜ 同源 Markdown 索引：<a href="./文档索引_v1.0.md">文档索引_v1.0.md</a></p>
+  <p>本页面为离线单文件，不请求任何外部资源；源文档位于团队共享盘，路径仅作登记。</p>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('.bar button'));
+  var input = document.getElementById('kw');
+  var empty = document.getElementById('empty');
+  var activeTheme = '全部';
+  if (!cards.length || !buttons.length || !input || !empty) { return; }
+  function apply() {
+    var kw = (input.value || '').trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function (card) {
+      var themeOk = activeTheme === '全部' || card.getAttribute('data-theme') === activeTheme;
+      var kwOk = kw === '' || card.textContent.toLowerCase().indexOf(kw) !== -1;
+      var visible = themeOk && kwOk;
+      card.style.display = visible ? '' : 'none';
+      if (visible) { shown += 1; }
+    });
+    empty.style.display = shown === 0 ? 'block' : 'none';
+  }
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      activeTheme = button.getAttribute('data-filter');
+      buttons.forEach(function (other) {
+        other.setAttribute('aria-pressed', other === button ? 'true' : 'false');
+      });
+      apply();
+    });
+  });
+  input.addEventListener('input', apply);
+  apply();
+});
+</script>
+</body>
+</html>

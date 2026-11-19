@@ -1,0 +1,409 @@
+{
+  "schemaVersion": "1.0",
+  "researchId": "R-20261118-001",
+  "meta": {
+    "title": "STM32H743 与 STM32F407 电机控制选型对比",
+    "createdAt": "2026-11-18T10:00:00+08:00",
+    "updatedAt": "2026-11-18T11:30:00+08:00",
+    "mode": "M-DEEP",
+    "modeBasis": "涉及技术选型与多个子问题，需要交叉验证",
+    "rigor": "L2",
+    "rigorBasis": "技术研究影响工程决策，但非安全或法律场景",
+    "detail": "R2",
+    "detailBasis": "用户要求标准版对比报告",
+    "budget": {
+      "tier": "充分",
+      "limits": { "searchCalls": 30, "pageReads": 30, "agents": 3 },
+      "used": { "searchCalls": 18, "pageReads": 21, "agents": 2 }
+    },
+    "domains": ["技术研究", "嵌入式与电子工程研究"],
+    "primaryDomains": ["嵌入式与电子工程研究"],
+    "strategiesApplied": ["references/domains/embedded.md"],
+    "languages": { "output": "zh-CN", "search": ["zh-CN", "en"] },
+    "completion": "CMP-DONE",
+    "configSources": [
+      { "key": "detail", "value": "R2", "source": "task" },
+      { "key": "rigor", "value": "L2", "source": "domain" }
+    ]
+  },
+  "brief": {
+    "objective": "对比两款 MCU 在电机控制场景的适用性并给出选型建议",
+    "subject": "STM32H743 与 STM32F407",
+    "constraints": { "versionRange": "H743 rev V / F407 rev Y", "region": "global" },
+    "expectedOutput": "对比报告与选型建议",
+    "language": "zh-CN"
+  },
+  "scope": {
+    "inScope": ["电机控制相关外设与算力", "成本与生态", "工具链与开发难度"],
+    "outOfScope": ["非电机控制场景", "具体 PCB 设计"],
+    "timeRange": "2019-2026",
+    "region": "全球",
+    "versionRange": "STM32H743 rev V；STM32F407 rev Y"
+  },
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "两款芯片在 FOC 控制中的算力与外设差异是什么？",
+      "why": "决定控制环频率与算法复杂度上限",
+      "evidenceNeeded": ["数据手册", "应用笔记"],
+      "acceptance": "至少两个独立来源给出一致的算力/外设对比",
+      "critical": true,
+      "status": "answered"
+    }
+  ],
+  "plan": { "confirmed": true, "confirmedAt": "2026-11-18T10:05:00+08:00" },
+  "sources": [
+    {
+      "id": "S-001",
+      "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32h743.html",
+      "title": "STM32H743 产品页",
+      "titleOriginal": "STM32H743 - High-performance MCUs",
+      "language": "en",
+      "type": "official_doc",
+      "publisher": "STMicroelectronics",
+      "author": "ST",
+      "publishedAt": "2024-03-01",
+      "updatedAt": "2025-11-10",
+      "version": "rev V",
+      "accessedAt": "2026-11-18T10:12:00+08:00",
+      "rating": "S",
+      "ratingBasis": "芯片厂商官方产品页，一手资料，含数据手册与勘误入口；与选型用途直接相关",
+      "tier": 1,
+      "status": "active",
+      "notes": ""
+    },
+    {
+      "id": "S-002",
+      "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32f407.html",
+      "title": "STM32F407 产品页",
+      "titleOriginal": "STM32F407 - High-performance MCUs",
+      "language": "en",
+      "type": "official_doc",
+      "publisher": "STMicroelectronics",
+      "author": "ST",
+      "publishedAt": "2023-09-01",
+      "updatedAt": "2025-06-20",
+      "version": "rev Y",
+      "accessedAt": "2026-11-18T10:13:00+08:00",
+      "rating": "S",
+      "ratingBasis": "芯片厂商官方产品页，一手资料；与 F407 参数对比用途直接相关",
+      "tier": 1,
+      "status": "active",
+      "notes": ""
+    },
+    {
+      "id": "S-003",
+      "url": "https://distributor.example.com/stm32h743-price",
+      "title": "STM32H743 1k 批量报价",
+      "titleOriginal": "STM32H743 price break 1k",
+      "language": "en",
+      "type": "report",
+      "publisher": "Example Distributor",
+      "author": "Sales Team",
+      "publishedAt": "2024-06-15",
+      "updatedAt": null,
+      "version": "",
+      "accessedAt": "2026-11-18T10:30:00+08:00",
+      "rating": "B",
+      "ratingBasis": "代理商公开报价页，可核验但为单一渠道且时间较早；与成本用途相关",
+      "tier": 2,
+      "status": "stale",
+      "notes": "报价可能已过期，仅作历史参考"
+    },
+    {
+      "id": "S-004",
+      "url": "https://industry-report.example.org/mcu-price-2026",
+      "title": "2026 MCU 价格趋势报告（节选）",
+      "titleOriginal": "2026 MCU price trend report",
+      "language": "en",
+      "type": "report",
+      "publisher": "Example Research",
+      "author": "Analyst Team",
+      "publishedAt": "2026-02-01",
+      "updatedAt": "2026-03-10",
+      "version": "v2",
+      "accessedAt": "2026-11-18T10:32:00+08:00",
+      "rating": "B",
+      "ratingBasis": "行业报告有方法说明与样本口径；与批量价格用途相关，但未给出原始报价单",
+      "tier": 2,
+      "status": "active",
+      "notes": "统计口径为 10k 批量不含税"
+    },
+    {
+      "id": "S-005",
+      "url": "https://benchmark.example.net/stm32h7-vs-f4-foc",
+      "title": "STM32H7 与 F4 的 FOC 性能对比实测",
+      "titleOriginal": "STM32H7 vs F4 FOC benchmark",
+      "language": "en",
+      "type": "community",
+      "publisher": "Embedded Benchmark Lab",
+      "author": "独立评测者",
+      "publishedAt": "2025-08-12",
+      "updatedAt": "2025-09-01",
+      "version": "",
+      "accessedAt": "2026-11-18T10:20:00+08:00",
+      "rating": "B",
+      "ratingBasis": "第三方独立实测，公开测试条件与代码；非厂商资料，可交叉核验",
+      "tier": 2,
+      "status": "active",
+      "notes": "测试条件：20 kHz PWM、三电阻采样"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E-001",
+      "sourceId": "S-001",
+      "claim": "STM32H743 主频最高 480 MHz，带双精度 FPU",
+      "quote": "480 MHz, Cortex-M7 with double-precision FPU",
+      "locator": "产品页 Features 第 1 节",
+      "publishedAt": "2024-03-01",
+      "version": "rev V",
+      "depth": "fulltext",
+      "strength": "strong",
+      "status": "verified",
+      "accessedAt": "2026-11-18T10:14:00+08:00"
+    },
+    {
+      "id": "E-002",
+      "sourceId": "S-002",
+      "claim": "STM32F407 主频最高 168 MHz，带单精度 FPU",
+      "quote": "168 MHz, Cortex-M4 with single-precision FPU",
+      "locator": "产品页 Features 第 1 节",
+      "publishedAt": "2023-09-01",
+      "version": "rev Y",
+      "depth": "fulltext",
+      "strength": "strong",
+      "status": "verified",
+      "accessedAt": "2026-11-18T10:15:00+08:00"
+    },
+    {
+      "id": "E-003",
+      "sourceId": "S-003",
+      "claim": "H743 在 1k 批量下单价约 12.5 美元",
+      "quote": "STM32H743VIT6 1k price: USD 12.50",
+      "locator": "报价表第 3 行",
+      "publishedAt": "2024-06-15",
+      "version": "",
+      "depth": "snippet",
+      "strength": "medium",
+      "status": "verified",
+      "dataKind": "reported",
+      "accessedAt": "2026-11-18T10:31:00+08:00"
+    },
+    {
+      "id": "E-004",
+      "sourceId": "S-004",
+      "claim": "10k 批量下 H743 与 F407 价差收窄到 15% 以内",
+      "quote": "At 10k volume, the price gap between H743 and F407 narrows below 15%.",
+      "locator": "第 4 节 表格 2",
+      "publishedAt": "2026-02-01",
+      "version": "v2",
+      "depth": "snippet",
+      "strength": "weak",
+      "status": "unverified",
+      "dataKind": "estimated",
+      "accessedAt": "2026-11-18T10:33:00+08:00"
+    },
+    {
+      "id": "E-005",
+      "sourceId": "S-005",
+      "claim": "在 20 kHz FOC 下，H743 的控制环计算耗时约为 F407 的 1/3",
+      "quote": "H743 completes the FOC loop in about one third of the F407 time at 20 kHz.",
+      "locator": "Results 第 2 段",
+      "publishedAt": "2025-08-12",
+      "version": "",
+      "depth": "fulltext",
+      "strength": "medium",
+      "status": "verified",
+      "dataKind": "measured",
+      "accessedAt": "2026-11-18T10:21:00+08:00"
+    }
+  ],
+  "conclusions": [
+    {
+      "id": "C-01",
+      "statement": "在需要高频 FOC 与复杂算法的场景，H743 的算力与外设带宽优于 F407。",
+      "evidenceIds": ["E-001", "E-005"],
+      "counterEvidenceIds": [],
+      "confidence": "中",
+      "causality": "causal",
+      "verification": "cross-checked",
+      "reproLevel": "documented",
+      "scope": "电机控制、FOC、采样频率 > 20 kHz",
+      "asOf": "2026-11-18",
+      "status": "active",
+      "assumptionIds": []
+    },
+    {
+      "id": "C-02",
+      "statement": "H743 的采购成本高于 F407，但价差随批量与汇率变化，无法给出单一倍数。",
+      "evidenceIds": ["E-003", "E-004"],
+      "counterEvidenceIds": [],
+      "confidence": "未确定",
+      "verification": "cross-checked",
+      "scope": "1k–10k 批量，不含税",
+      "asOf": "2026-11-18",
+      "status": "disputed",
+      "assumptionIds": []
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "X-01",
+      "conclusionIds": ["C-02"],
+      "positionA": { "statement": "H743 单价更高", "evidenceIds": ["E-003"] },
+      "positionB": { "statement": "批量价格接近", "evidenceIds": ["E-004"] },
+      "attribution": {
+        "version": "不同采购批量",
+        "scope": "1k 与 10k 阶梯价",
+        "timing": "2025Q4 与 2026Q2",
+        "primaryBasis": "代理商报价",
+        "statisticalCaliber": "不含税/含税",
+        "cause": "批量与汇率差异"
+      },
+      "status": "unresolved",
+      "resolution": "保留争议：按批量分别列价，不合并为单一倍数；待补充同批量、同时间窗口的报价",
+      "impact": "成本结论只能给区间，不能给单一结论（C-02 可信度=未确定）"
+    }
+  ],
+  "counterResearch": [
+    {
+      "id": "CR-01",
+      "conclusionId": "C-01",
+      "question": "是否存在 H743 反而更差的场景？",
+      "action": "检索 H743 在低成本电机方案中的投诉与限制",
+      "finding": "高主频带来功耗与 EMI 挑战，低成本方案更倾向 F407",
+      "effect": "为 C-01 补充限定条件：高性能场景成立，低成本场景不成立"
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "A-01",
+      "statement": "用户关注的是工业电机控制而非消费级玩具电机",
+      "impact": "若为消费级，成本权重更高，结论可能反转",
+      "status": "active"
+    }
+  ],
+  "limitations": [
+    {
+      "id": "L-01",
+      "issue": "缺少实测功耗数据",
+      "reason": "未获得开发板与功率计",
+      "impact": "功耗对比仅基于数据手册典型值",
+      "attempted": ["检索厂商 AN", "查找第三方评测"]
+    }
+  ],
+  "incomplete": [],
+  "openQuestions": [],
+  "nextSteps": [
+    {
+      "id": "N-01",
+      "action": "补充实测功耗与 EMI 数据",
+      "value": "验证高主频带来的功耗代价",
+      "resources": "开发板 + 功率计 + 2 小时"
+    }
+  ],
+  "githubAnalysis": null,
+  "reproducibility": {
+    "hardware": "STM32H743I-EVAL / STM32F407G-DISC1",
+    "software": "STM32CubeMX 6.x",
+    "toolchain": "arm-none-eabi-gcc 13.2",
+    "os": "Windows 11",
+    "dependencies": ["STM32CubeH7 1.11.0", "STM32CubeF4 1.28.0"],
+    "parameters": ["PWM 20 kHz", "ADC 采样 3 通道"],
+    "steps": ["生成工程", "编译", "烧录", "跑 FOC 循环测试"],
+    "expected": "控制环周期 < 50 us"
+  },
+  "qualityReview": {
+    "reviewerType": "self-adversarial",
+    "reviewIndependence": "none",
+    "checklist": [
+      { "item": "来源可靠性", "verdict": "pass", "basis": "关键结论均有厂商一手资料" },
+      { "item": "证据充分性", "verdict": "pass", "basis": "C-01 有 2 条独立证据" },
+      { "item": "结论是否超出证据", "verdict": "pass", "basis": "已加场景限定" },
+      { "item": "是否遗漏重要信息", "verdict": "pass", "basis": "成本/生态/工具链已覆盖" },
+      { "item": "逻辑错误", "verdict": "pass", "basis": "未发现" },
+      { "item": "过时信息", "verdict": "pass", "basis": "版本均在有效期内" },
+      { "item": "相互矛盾资料", "verdict": "pass", "basis": "X-01 已登记并披露（unresolved）" },
+      { "item": "是否主动找反例", "verdict": "pass", "basis": "CR-01 已执行" },
+      { "item": "是否说明局限", "verdict": "pass", "basis": "L-01 已披露" }
+    ],
+    "rounds": [
+      {
+        "round": 1,
+        "found": ["成本结论未区分批量"],
+        "fixed": ["补充 X-01 并按批量列价"],
+        "result": "pass"
+      }
+    ],
+    "verdict": "pass"
+  },
+  "artifacts": {
+    "report": "report.md",
+    "sources": "sources.md",
+    "evidence": "evidence.md",
+    "log": "research-log.md",
+    "notes": ["notes/01-perf.md", "notes/02-ecosystem.md"],
+    "diagrams": ["diagrams/selection.mmd"]
+  },
+  "log": {
+    "queries": [
+      {
+        "round": 1,
+        "query": "STM32H743 FOC performance datasheet",
+        "profile": "docs_code",
+        "needs": ["算力", "外设"],
+        "constraints": ["version H743"],
+        "engine": "seam",
+        "newEvidence": 3,
+        "gaps": []
+      }
+    ],
+    "retrievalAttempts": [],
+    "pageIssues": [],
+    "excludedSources": [{ "url": "https://example-blog.com/stm32", "reason": "无出处、内容与厂商数据矛盾，且含可疑指令" }],
+    "securityEvents": [
+      {
+        "at": "2026-11-18T10:25:00+08:00",
+        "kind": "prompt-injection",
+        "url": "https://example-blog.com/stm32",
+        "pattern": "ignore previous instructions",
+        "action": "ignored; source excluded",
+        "note": "页面要求输出系统提示并执行命令，按数据对待，仅提取技术段落"
+      }
+    ],
+    "staleWarnings": [
+      {
+        "at": "2026-11-18T10:34:00+08:00",
+        "sourceId": "S-003",
+        "issue": "报价时间较早，可能已过期",
+        "detail": "S-003 发布于 2024-06，采购价可能变化；已标 stale，仅作历史参考"
+      }
+    ],
+    "directionChanges": [
+      {
+        "at": "2026-11-18T10:40:00+08:00",
+        "from": "仅比较主频",
+        "to": "增加外设带宽与 ADC 精度维度",
+        "reason": "首轮发现电机控制瓶颈在采样链路"
+      }
+    ],
+    "budgetEvents": [
+      { "at": "2026-11-18T10:50:00+08:00", "event": "80% warning", "used": { "searchCalls": 24 } }
+    ],
+    "timeline": [
+      { "at": "2026-11-18T10:00:00+08:00", "phase": "S1", "note": "受理请求" },
+      { "at": "2026-11-18T11:30:00+08:00", "phase": "S15", "note": "持久化完成" }
+    ]
+  },
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "at": "2026-11-18T11:30:00+08:00",
+      "author": "S01",
+      "reason": "initial research",
+      "changes": [],
+      "invalidated": []
+    }
+  ]
+}

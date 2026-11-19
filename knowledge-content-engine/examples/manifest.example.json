@@ -1,0 +1,167 @@
+{
+  "schemaVersion": "1.1",
+  "docId": "DOC-20261118-001",
+  "meta": {
+    "title": "C 语言指针入门讲义",
+    "version": "1.0",
+    "createdAt": "2026-11-18T10:00:00+08:00",
+    "updatedAt": "2026-11-18T12:00:00+08:00",
+    "detailLevel": "C2",
+    "language": "zh-CN",
+    "asOf": "2026-11-18",
+    "versionRange": "C11",
+    "completion": "CMP-DONE",
+    "budget": {
+      "tier": "标准",
+      "limits": { "reads": 25, "verifications": 15, "chapters": 15, "rounds": 2 },
+      "used": { "reads": 6, "verifications": 3, "chapters": 3, "rounds": 1 }
+    },
+    "configSources": [{ "key": "detailLevel", "value": "C2", "source": "task" }],
+    "capabilities": [{ "capability": "files", "available": true }]
+  },
+  "brief": {
+    "title": "C 语言指针入门讲义",
+    "purpose": "读者读完能解释指针与地址的关系并写出解引用表达式",
+    "audience": { "role": "零基础学习者", "context": "自学" },
+    "learnerProfile": null,
+    "scope": { "inScope": ["地址与指针", "指针与数组"], "outOfScope": ["多级指针"] },
+    "deliverableFormat": "markdown",
+    "sourcePolicy": "provided+verify",
+    "successCriteria": ["术语解释 100%", "练习对齐 100%"],
+    "constraints": { "exercisePolicy": "default", "exerciseExempt": false }
+  },
+  "mode": {
+    "requested": "M-LEARN",
+    "primary": "M-LEARN",
+    "decidedBy": "user",
+    "scores": { "tech": 0, "learn": 7 },
+    "signals": [{ "signal": "B1", "quote": "入门讲义", "score": 2 }],
+    "rule": "R2",
+    "defaultReason": "",
+    "evidence": "用户明确要求入门讲义；B1 命中"
+  },
+  "docType": { "primaryType": "lecture", "types": ["lecture"], "profile": "lecture", "profiles": ["tutorial"] },
+  "structure": [
+    {
+      "id": "CH-01",
+      "title": "地址与指针",
+      "level": 1,
+      "purpose": "建立指针模型",
+      "objectives": ["OBJ-CH01-1 能解释地址与指针的关系", "OBJ-CH01-2 能写出解引用表达式"],
+      "claimsPlanned": ["CL-01"],
+      "evidenceNeeded": ["教材定义"],
+      "exercises": ["EX-01"],
+      "acceptance": "能解释关系并写出解引用",
+      "critical": true,
+      "dependsOn": []
+    },
+    {
+      "id": "CH-02",
+      "title": "指针与数组",
+      "level": 1,
+      "purpose": "理解数组名与指针",
+      "objectives": ["OBJ-CH02-1 能说明数组名与指针的异同"],
+      "claimsPlanned": ["CL-02"],
+      "evidenceNeeded": ["教材说明"],
+      "exercises": ["EX-02"],
+      "acceptance": "能区分数组名与指针",
+      "critical": false,
+      "dependsOn": ["CH-01"]
+    }
+  ],
+  "coverageMatrix": [
+    { "target": "地址与指针", "sectionIds": ["CH-01"], "status": "covered" },
+    { "target": "指针与数组", "sectionIds": ["CH-02"], "status": "covered" }
+  ],
+  "prerequisiteGraph": { "nodes": ["CH-01", "CH-02"], "edges": [{ "from": "CH-02", "to": "CH-01" }] },
+  "sources": [
+    {
+      "id": "SRC-001",
+      "title": "C 语言程序设计（示例教材）",
+      "locator": "用户提供 PDF 第 8 章",
+      "publisher": "示例出版社",
+      "publishedAt": "2020-01-01",
+      "accessedAt": "2026-11-18T10:10:00+08:00",
+      "version": "第 2 版",
+      "type": "book",
+      "language": "zh-CN",
+      "rating": "A",
+      "ratingBasis": "正式出版教材，只引用指针基础定义",
+      "status": "active",
+      "origin": "user"
+    }
+  ],
+  "claims": [
+    {
+      "id": "CL-01",
+      "statement": "指针是存储地址的变量",
+      "type": "fact",
+      "verification": "documented",
+      "sourceIds": ["SRC-001"],
+      "sectionId": "CH-01",
+      "locator": "8.1",
+      "status": "active"
+    },
+    {
+      "id": "CL-02",
+      "statement": "数组名在多数表达式中退化为首元素地址，sizeof 不退化",
+      "type": "fact",
+      "verification": "documented",
+      "sourceIds": ["SRC-001"],
+      "sectionId": "CH-02",
+      "locator": "8.3",
+      "status": "active"
+    }
+  ],
+  "citations": [
+    { "id": "CT-01", "claimId": "CL-01", "sourceId": "SRC-001", "locator": "8.1", "quote": "指针变量存放的是内存地址", "kind": "direct", "checked": true }
+  ],
+  "exercises": [
+    {
+      "id": "EX-01",
+      "objectiveIds": ["OBJ-CH01-1", "OBJ-CH01-2"],
+      "sectionId": "CH-01",
+      "type": "short",
+      "difficulty": "basic",
+      "question": "解释 int *p = &x; 中 & 与 * 的含义",
+      "requirement": "各用一句话说明",
+      "answer": "& 取地址，* 声明指针并在表达式中解引用",
+      "explanation": "声明中的 * 表示指针类型；表达式 *p 访问指向的值",
+      "knowledgePoints": ["指针", "解引用"]
+    },
+    {
+      "id": "EX-02",
+      "objectiveIds": ["OBJ-CH02-1"],
+      "sectionId": "CH-02",
+      "type": "single",
+      "difficulty": "application",
+      "question": "sizeof(a) 与 sizeof(p)（p=a）是否相同？",
+      "requirement": "说明理由并给出典型值差异",
+      "answer": "通常不同：前者是数组总字节，后者是指针大小",
+      "explanation": "数组名在 sizeof 中不退化"
+    }
+  ],
+  "glossary": [
+    { "term": "指针", "definition": "存储地址的变量", "firstUse": "CH-01", "aliases": [] }
+  ],
+  "conflicts": [],
+  "limitations": ["未覆盖多级指针"],
+  "assumptions": [{ "id": "AS-01", "statement": "读者已掌握数组基础", "impact": "不重复基础语法" }],
+  "incomplete": [],
+  "openQuestions": [],
+  "risks": [],
+  "review": {
+    "checklist": [{ "id": "LQ-08", "result": "pass", "evidence": "EX-01/EX-02 覆盖目标" }],
+    "gates": [{ "gate": "G5", "result": "pass" }],
+    "defects": [],
+    "rounds": 1,
+    "residual": []
+  },
+  "conversionRequests": [],
+  "knowledgeCandidates": [],
+  "artifacts": [
+    { "id": "A-01", "role": "primary", "mode": "M-LEARN", "path": "main.md", "completion": "CMP-DONE" }
+  ],
+  "changelog": [{ "version": "1.0", "at": "2026-11-18T12:00:00+08:00", "reason": "首版" }],
+  "log": { "preflight": { "outputDir": "content/c-pointer-lecture" }, "timeline": [{ "at": "2026-11-18T10:00:00+08:00", "phase": "S0", "note": "预检完成" }] }
+}
